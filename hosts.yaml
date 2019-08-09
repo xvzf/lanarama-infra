@@ -2,3 +2,4 @@ all:
   hosts:
     r210:
       ansible_host: r210.speedport.ip
+      ansible_python_interpreter: /usr/bin/python3

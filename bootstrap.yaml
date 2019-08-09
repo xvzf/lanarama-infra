@@ -5,7 +5,7 @@
 
   pre_tasks:
     - name: Install python for Ansible
-      raw: type python --version || type python2.7 || (apt -v && apt -y update && apt install -y python-minimal)
+      raw: type python3 --version || type python3 || (apt -v && apt -y update && apt install -y python-minimal)
       changed_when: False
 
 - hosts: all

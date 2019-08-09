@@ -1,0 +1,11 @@
+<pool type='logical'>
+  <name>{{ libvirt.storage.pool_name }}</name>
+  <uuid>{{ libvirt.storage.lvm_vg_name | to_uuid }}</uuid>
+  <source>
+    <name>{{ libvirt.storage.lvm_vg_name }}</name>
+    <format type='lvm2'/>
+  </source>
+  <target>
+    <path>/dev/{{ libvirt.storage.lvm_vg_name }}</path>
+  </target>
+</pool>

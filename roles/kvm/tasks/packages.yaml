@@ -12,3 +12,5 @@
     - virtinst
     - bridge-utils
     - virt-top
+    - python3-libvirt
+    - python3-lxml
