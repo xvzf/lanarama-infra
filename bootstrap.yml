@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: type python --version || type python2.7 || (apt -v && apt -y update && apt install -y python-minimal)
+      changed_when: False
+  roles:
+    - base
+    - node_exporter
+    - sshd

@@ -1,0 +1,12 @@
+---
+- name: Add users
+  user:
+    name: "{{ item.name }}"
+    group: "sudo"
+    home: "/home/{{ item.name }}"
+    createhome: "yes"
+    generate_ssh_key: "no"
+    password: "{{ item.password }}"
+    update_password: "on_create"
+    shell: "/bin/bash"
+  with_items: "{{ users }}"

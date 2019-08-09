@@ -1,0 +1,57 @@
+---
+- name: required packages
+  package:
+    name: unzip
+    state: present
+
+- name: group for node exporter
+  group:
+    name: prometheus_node_exporter
+    state: present
+    system: yes
+
+- name: user for node exporter
+  user:
+    name: prometheus_node_exporter
+    group: prometheus_node_exporter
+    home: /
+    shell: /usr/sbin/nologin
+
+- name: download node_exporter
+  become: false
+  get_url:
+    url: "https://github.com/prometheus/node_exporter/releases/download/v{{ monitoring.node_exporter_version }}/node_exporter-{{ monitoring.node_exporter_version }}.linux-amd64.tar.gz"
+    dest: "/tmp/node_exporter-{{ monitoring.node_exporter_version}}.linux-amd64.tar.gz"
+  retries: 3
+  delay: 1
+  delegate_to: localhost
+
+- name: unpack node_exporter binary
+  become: false
+  unarchive:
+    src: "/tmp/node_exporter-{{ monitoring.node_exporter_version}}.linux-amd64.tar.gz"
+    dest: /tmp
+    creates: "/tmp/node_exporter-{{ monitoring.node_exporter_version}}.linux-amd64"
+  delegate_to: localhost
+
+- name: create /usr/local/bin
+  file:
+    path: /usr/local/bin
+    state: directory
+    mode: 0755
+
+- name: copy node_exporter binary to /usr/local/bin
+  copy:
+    src: "/tmp/node_exporter-{{ monitoring.node_exporter_version}}.linux-amd64/node_exporter"
+    dest: /usr/local/bin/node_exporter
+    owner: prometheus_node_exporter
+    group: prometheus_node_exporter
+    mode: 0750
+
+- name: copy systemd file
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+    mode: 0644
+  notify: restart node_exporter
+
