@@ -1,6 +1,5 @@
 ---
 - name: Install universial base packages
-  package:
-    name: "{{ item }}"
+  apt:
+    name: "{{ base_packages }}"
     state: present
-  with_items: "{{ base_packages }}"

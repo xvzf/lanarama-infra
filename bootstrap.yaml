@@ -7,6 +7,9 @@
     - name: Install python for Ansible
       raw: type python --version || type python2.7 || (apt -v && apt -y update && apt install -y python-minimal)
       changed_when: False
+
+- hosts: all
+  become: true
   roles:
     - base
     - node_exporter

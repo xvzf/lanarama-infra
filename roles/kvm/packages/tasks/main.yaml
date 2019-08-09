@@ -1,0 +1,14 @@
+---
+- name: Install KVM requirements and tools
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libvirt-daemon
+    - libosinfo-bin
+    - libguestfs-tools
+    - libvirt-daemon-system
+    - qemu-kvm
+    - virtinst
+    - bridge-utils
+    - virt-top
