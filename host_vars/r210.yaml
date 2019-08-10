@@ -1,5 +1,0 @@
-libvirt:
-  storage:
-    lvm_vg_name: r210-vg
-    pool_name: lvm_default
-  

@@ -14,3 +14,9 @@
     - virt-top
     - python3-libvirt
     - python3-lxml
+- name: Create symlink for mkisofs
+  file:
+    src: /usr/bin/genisoimage
+    dest: /usr/bin/mkisofs
+    state: link
+

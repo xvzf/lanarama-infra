@@ -1,16 +1,5 @@
 ---
-- name: Add LVM volume group
+- name: Enable autostart on default volume group
   virt_pool:
-    name: "{{ libvirt.storage.pool_name }}"
-    command: define
-    xml: '{{ lookup("template", "storage_pool.xml") }}'
-
-- name: Start generated volume group
-  virt_pool:
-    name: "{{ libvirt.storage.pool_name }}"
-    state: active
-
-- name: Enable autostart on generated volume group
-  virt_pool:
-    name: "{{ libvirt.storage.pool_name }}"
+    name: "default"
     autostart: yes

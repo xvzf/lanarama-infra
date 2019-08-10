@@ -1,6 +1,11 @@
 ---
+- name: Qemu config
+  copy:
+    src: qemu.conf
+    dest: /etc/libvirt/qemu.conf
+
 - name: Start and enable libvirt
   service:
     name: libvirtd
-    state: started
+    state: restarted
     enabled: yes
