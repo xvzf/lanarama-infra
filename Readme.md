@@ -1,4 +1,4 @@
-# KVM host with BGP routing capabilities using frrouting
+# Lanarama Infrastructure & Server Setup
 
 Goal of these ansible playbooks is a working VM host which can advertise its networks via BGP.
 
