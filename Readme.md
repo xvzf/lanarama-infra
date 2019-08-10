@@ -2,6 +2,9 @@
 
 Goal of these ansible playbooks is a working VM host which can advertise its networks via BGP.
 
+## Network topology
+![network topology](.assets/img/topo.png)
+
 ## Infrastructure
 - Edge Router / Firewall (WAN transfer net, BGP internal)
 - KVM host which contains VMs running infrastructure and monitoring services (attached via BGP)
