@@ -1,0 +1,45 @@
+---
+- name: Enable IPv6 forwarding
+  sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Enable IPv4 forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- sysctl:
+    name: net.ipv4.neigh.default.gc_thresh1
+    value: 2048
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- sysctl:
+    name: net.ipv4.neigh.default.gc_thresh2
+    value: 4096
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- sysctl:
+    name: net.ipv4.neigh.default.gc_thresh2
+    value: 8192
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- sysctl:
+    name: net.nf_conntrack_max
+    value: 2097152
+    sysctl_set: yes
+    state: present
+    reload: yes
+

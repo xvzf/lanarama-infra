@@ -1,0 +1,6 @@
+---
+- include: packages.yaml
+- include: sysctl.yaml
+- include: nftables.yaml
+- include: frr.yaml
+

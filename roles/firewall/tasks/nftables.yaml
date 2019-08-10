@@ -1,0 +1,19 @@
+---
+- name: Routing and Firewall configuration (nftables)
+  template:
+    src: nftables.conf
+    dest: /etc/nftables.conf
+    mode: 0644
+    backup: yes
+  register: nftables
+
+- name: Enable nftables
+  service:
+    name: nftables
+    enabled: yes
+
+- name: Restart nftables
+  service:
+    name: nftables
+    state: restarted
+  when: nftables.changed

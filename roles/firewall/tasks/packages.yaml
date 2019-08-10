@@ -1,0 +1,8 @@
+---
+- name: install routing packages
+  package:
+    name:
+      - iproute2
+      - nftables
+      - frr
+    state: present

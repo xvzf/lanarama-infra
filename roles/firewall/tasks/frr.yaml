@@ -1,0 +1,8 @@
+---
+# - name: Routing (frr)
+#   template:
+#     src: nftables.conf
+#     dest: /etc/nftables.conf
+#     mode: 0644
+#     backup: yes
+# 
