@@ -5,6 +5,9 @@ Goal of these ansible playbooks is a working VM host which can advertise its net
 ## Network topology
 ![network topology](.assets/img/topo.png)
 
+Core Switches: Arista DCS7050-SX-64
+Access Switches: Penguin Computing 4804i-r
+
 ## Infrastructure
 - Edge Router / Firewall (WAN transfer net, BGP internal)
 - KVM host which contains VMs running infrastructure and monitoring services (attached via BGP)
