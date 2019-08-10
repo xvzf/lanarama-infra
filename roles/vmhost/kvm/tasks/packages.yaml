@@ -1,0 +1,22 @@
+---
+- name: Install KVM requirements and tools
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libvirt-daemon
+    - libosinfo-bin
+    - libguestfs-tools
+    - libvirt-daemon-system
+    - qemu-kvm
+    - virtinst
+    - bridge-utils
+    - virt-top
+    - python3-libvirt
+    - python3-lxml
+- name: Create symlink for mkisofs
+  file:
+    src: /usr/bin/genisoimage
+    dest: /usr/bin/mkisofs
+    state: link
+

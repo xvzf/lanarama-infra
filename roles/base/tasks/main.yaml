@@ -1,4 +1,5 @@
 ---
-- include: packages.yml
-- include: sudo.yml
-- include: users.yml
+- include: packages.yaml
+- include: sudo.yaml
+- include: users.yaml
+- include: sshd.yaml

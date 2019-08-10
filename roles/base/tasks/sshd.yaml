@@ -1,0 +1,15 @@
+---
+- name: copy sshd config
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/
+    owner: root
+    group: root
+    mode: 0644
+  register: ssh_cfg
+
+- name: restart sshd service
+  systemd:
+    name: sshd
+    state: restarted
+  when: ssh_cfg.changed

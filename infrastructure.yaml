@@ -1,0 +1,25 @@
+---
+- hosts:
+    - vm_hosts
+    - gateways
+  become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: type python3 --version || type python3 || (apt -v && apt -y update && apt install -y python-minimal)
+      changed_when: False
+
+- hosts:
+    - vm_hosts
+    - gateways
+  become: true
+  roles:
+    - base
+    - node_exporter
+
+- hosts: vm_hosts
+  become: true
+
+  roles:
+    - vmhost/kvm

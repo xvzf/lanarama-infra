@@ -1,0 +1,5 @@
+---
+- name: Enable autostart on default volume group
+  virt_pool:
+    name: "default"
+    autostart: yes
