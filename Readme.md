@@ -19,7 +19,7 @@ Core network has ECMP routing enabled with up to 4 ECMP path. This value might b
 2. IPv6 tbd, depending on what we'll get.
 
 #### Peering configuration
-> **ATTENTION** The BGP daemon on the core switches is listening only on the IPv6 address range!
+> **ATTENTION** The BGP daemon on the core switches is listening only on the IPv6 address range! (more specific: `fc00::/16`)
 
 Peering is possible at the coreswitches on Port 1-16 (10 Gbit) as well as 49-52 (40 Gbit, 51 and 52 split up to 4x10G for Server connections) following this schema (IPv4, IPv6). All ASes are accepted!
 ```
@@ -58,3 +58,7 @@ Privileged users can enter the configuration shell (similar to cisco) with:
 ```
 sudo vtysh
 ```
+
+# DO READ THIS!!!
+- DHCP has to run on a **fucking physical interface** and **not a bridge**.
+- Don't add any kernel routes (e.g. with iproute 2) on the arista switches. It **will** break routing!
