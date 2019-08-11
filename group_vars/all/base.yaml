@@ -1,0 +1,7 @@
+---
+base_packages:
+  - vim
+  - htop
+  - tmux
+
+ntp_server: 0.de.pool.ntp.org

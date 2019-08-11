@@ -1,8 +1,11 @@
 ---
-# - name: Routing (frr)
-#   template:
-#     src: nftables.conf
-#     dest: /etc/nftables.conf
-#     mode: 0644
-#     backup: yes
-# 
+- name: Configure frr daemons
+  copy:
+    src: daemons
+    dest: /etc/frr/daemons
+
+- name: Start and enable service
+  service:
+    name: frr
+    state: started
+    enabled: yes

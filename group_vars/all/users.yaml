@@ -1,10 +1,4 @@
-base_packages:
-  - vim
-  - htop
-  - tmux
-
-ntp_server: 0.de.pool.ntp.org
-
+---
 # Users
 users:
   # Username has to match github name as passwords are imported from here!
@@ -13,6 +7,3 @@ users:
     #
     # **NOTE** SSH Access is only allowed with a valid key.
     password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
-
-monitoring:
-  node_exporter_version: 0.17.0

@@ -1,12 +1,14 @@
 all:
   children:
-    vm_hosts:
-      hosts:
-        kvm0:
-          ansible_host: 172.16.0.162
-          ansible_python_interpreter: /usr/bin/python3
+    # vm_hosts:
+    #   hosts:
+    #     kvm0:
+    #       ansible_host: 192.168.122.9
+    #       ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q root@172.16.0.149"'
+    #       ansible_python_interpreter: /usr/bin/python3
     gateways:
       hosts:
         heaven0:
-          ansible_host: 172.16.0.162
+          ansible_host: 192.168.122.127
+          ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q root@172.16.0.149"'
           ansible_python_interpreter: /usr/bin/python3

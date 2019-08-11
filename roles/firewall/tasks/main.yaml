@@ -1,4 +1,9 @@
 ---
+- name: Load conntrack kernel module
+  modprobe:
+    name: ip_conntrack
+    state: present
+
 - include: packages.yaml
 - include: sysctl.yaml
 - include: nftables.yaml

@@ -3,3 +3,13 @@
 - include: sudo.yaml
 - include: users.yaml
 - include: sshd.yaml
+- include: cloudinit.yaml
+- name: Install haveged
+  package:
+    name: haveged
+    state: present
+- name: Enable haveged
+  service:
+    name: haveged
+    state: started
+    enabled: yes

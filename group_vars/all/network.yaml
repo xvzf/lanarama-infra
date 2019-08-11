@@ -1,0 +1,19 @@
+---
+event_network:
+  dns:
+    - 172.16.0.1
+  dhcp:
+    domain: lanarama.de
+    default_lease_time: 172800
+    max_lease_time: 259200
+    subnets:
+      - base: 192.168.0.0
+        mask: 255.255.255.0
+        router: 192.168.0.1
+        range_start: 192.168.0.50
+        range_end: 192.168.0.250
+      - base: 192.168.1.0
+        mask: 255.255.255.0
+        router: 192.168.1.1
+        range_start: 192.168.1.50
+        range_end: 192.168.1.250

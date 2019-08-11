@@ -1,0 +1,7 @@
+---
+- hosts: gateways
+  become: true
+
+  roles:
+    - firewall
+    # - dhcpd

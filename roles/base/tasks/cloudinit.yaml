@@ -1,0 +1,12 @@
+---
+- name: check if cloud init is enabled
+  stat:
+    path: /etc/cloud
+  register: cloud_init_state
+
+- name: disable cloud init
+  file:
+    path: /etc/cloud/cloud-init.disabled
+    state: touch
+  when: cloud_init_state.stat.exists
+

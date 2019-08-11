@@ -16,6 +16,7 @@
   become: true
   roles:
     - base
+    - network
     - node_exporter
 
 - hosts: vm_hosts
