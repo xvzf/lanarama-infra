@@ -16,7 +16,7 @@ Core network has ECMP routing enabled with up to 4 ECMP path. This value might b
 1. IPv4
   - Access Switches: `192.168.<access-nr>.0/24` (access-nr < 200), e.g. `192.168.2.0/24` for Access Switch 2
   - Servers Switches: `192.168.<200 + server-nr>.0/24` (server-nr > 200), e.g. `192.168.200.0/24` for Server 0
-  - High speed uplink switch: `192.168.100.0/24` (`.10` - `.40` reserved)
+  - High speed uplink switch: `192.168.100.0/24` (`.100` - `.150` reserved)
 2. IPv6 tbd, depending on what we'll get.
 
 #### Peering configuration
