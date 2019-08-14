@@ -10,3 +10,10 @@
     update_password: "on_create"
     shell: "/bin/bash"
   with_items: "{{ users }}"
+
+- name: Add ssh keys
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "https://github.com/{{ item.name }}.keys"
+  with_items: "{{ users }}"
