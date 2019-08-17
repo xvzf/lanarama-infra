@@ -1,0 +1,2 @@
+# Ansible managed
+INTERFACESv4="{{ dhcpd.interface }}"

@@ -4,14 +4,21 @@
     name: isc-dhcp-server
     state: present
 
-- debug:
-    var: network
-
 # DHCP
 - name: DHCP-server configuration
   template:
     src: dhcpd.conf
     dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+    #
+# DHCP
+- name: Defaults to only enable IPv4 DHCPd
+  template:
+    src: defaults
+    dest: /etc/default/isc-dhcp-server
     owner: root
     group: root
     mode: 0644
