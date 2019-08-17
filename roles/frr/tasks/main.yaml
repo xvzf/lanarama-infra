@@ -1,0 +1,39 @@
+---
+- name: Install packages required for routing
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - iproute2
+    - frr
+
+- name: Enable IPv4 routing
+  sysctl:
+    name: net.ipv4.conf.all.forwarding
+    value: 1
+    state: present
+    reload: yes
+
+- name: Enable IPv6 routing
+  sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: 1
+    state: present
+    reload: yes
+
+- name: Configure frr daemons
+  template:
+    src: daemons
+    dest: /etc/frr/daemons
+
+- name: Generate frr config
+  template:
+    src: frr.conf
+    dest: /etc/frr/frr.conf
+    backup: yes
+
+# - name: Start and enable service
+#   service:
+#     name: frr
+#     state: started
+#     enabled: yes
