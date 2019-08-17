@@ -1,0 +1,2 @@
+dhcpd:
+  interface: enp1s0
