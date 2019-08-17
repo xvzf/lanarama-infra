@@ -1,6 +1,0 @@
----
-- hosts: kvm0
-  become: true
-  roles:
-    - frr
-    - kvm

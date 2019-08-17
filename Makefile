@@ -1,12 +1,12 @@
 .PHONY: terraform vmhosts
 
-all: vmhosts terraform
+all: bootstrap
 
-firewall:
-	ansible-playbook -i inventory firewall.yaml
+bootstrap:
+	ansible-playbook -i inventory bootstrap.yaml
 
-vmhost:
-	ansible-playbook -i inventory vmhost.yaml
+base:
+	ansible-playbook -i inventory base.yaml
 
 terraform:
 	cd terraform/ && terraform init

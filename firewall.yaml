@@ -1,6 +1,0 @@
----
-- hosts: heaven0
-  become: true
-  roles:
-    - frr
-    - firewall
