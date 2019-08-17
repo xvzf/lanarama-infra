@@ -1,24 +1,39 @@
-network:
-  dhcp:
-    interfaces:
-      - name: eth0
-      - name: eth1
+frr:
+
+  hostname: kvm0
+
+  # IP Address configuration
+  interfaces:
+    - name: enp8s0f0
+      ipv4:
+        - 10.52.1.2/30
+      ipv6:
+        - fc00:0:512::2/126
+    - name: enp8s0f1
+      ipv4:
+        - 10.152.1.2/30
+      ipv6:
+        - fc00:1:512::2/126
+    - name: lo
+      ipv4:
+        - 10.64.80.1/32
+
+  # BGP Configuration
   bgp:
-    enabled: no
-  # v4:
-  #   ip: 172.17.0.1/24
-  # v6:
-  #   ip: fc13:37::1/64
-  # interfaces:
-  #   - name: eth2
-  #   - name: eth3
-  static:
-  # interfaces:
-  #     - name: none
-  #       v4:
-  #         ip: 10.0.0.101/24
-  #         gateway: 10.0.0.1
-  #       v6:
-  #         ip: fe80::101
-  #         netmask: 64
-  #         gateway:  fe80::1
+    # Local AS + Router ID
+    local_as: 64801
+    router_id: 10.64.80.1
+
+    # BGP Peers
+    neighbors:
+      - addr: fc00:0:512::1
+        remote_as: 64666
+      - addr: fc00:1:512::1
+        remote_as: 64667
+
+    # Advertised networks
+    networks:
+      ipv4:
+        - 10.64.80.1/32
+        - 192.168.122.0/24
+      ipv6:

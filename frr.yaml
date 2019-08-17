@@ -1,6 +1,0 @@
----
-- hosts: vm_hosts
-  become: true
-
-  roles:
-    - vmhost/frr

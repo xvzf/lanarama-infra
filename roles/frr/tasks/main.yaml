@@ -10,30 +10,38 @@
 - name: Enable IPv4 routing
   sysctl:
     name: net.ipv4.conf.all.forwarding
-    value: 1
+    value: "1"
     state: present
     reload: yes
 
 - name: Enable IPv6 routing
   sysctl:
     name: net.ipv6.conf.all.forwarding
-    value: 1
+    value: "1"
     state: present
     reload: yes
 
-- name: Configure frr daemons
-  template:
+- name: Copy daemon config
+  copy:
     src: daemons
     dest: /etc/frr/daemons
+    backup: yes
 
 - name: Generate frr config
   template:
     src: frr.conf
     dest: /etc/frr/frr.conf
     backup: yes
+  register: frr_conf
 
-# - name: Start and enable service
-#   service:
-#     name: frr
-#     state: started
-#     enabled: yes
+- name: Restart frr
+  service:
+    name: frr
+    state: restarted
+  when: frr_conf.changed
+
+- name: Enable frr
+  service:
+    name: frr
+    state: started
+    enabled: yes

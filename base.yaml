@@ -10,17 +10,8 @@
       raw: type python3 --version || type python3 || (apt -v && apt -y update && apt install -y python-minimal)
       changed_when: False
 
-- hosts:
-    - vm_hosts
-    - gateways
+- hosts: all
   become: true
   roles:
     - base
-    - network
-    - node_exporter
-
-- hosts: vm_hosts
-  become: true
-
-  roles:
-    - vmhost/kvm
+    - monitoring/node_exporter

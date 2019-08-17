@@ -2,8 +2,11 @@
 
 all: vmhosts terraform
 
-vmhosts:
-	ansible-playbook -i inventory infrastructure.yaml
+firewall:
+	ansible-playbook -i inventory firewall.yaml
+
+vmhost:
+	ansible-playbook -i inventory vmhost.yaml
 
 terraform:
 	cd terraform/ && terraform init

@@ -1,5 +1,0 @@
----
-- name: Generate /etc/network/interfaces
-  template:
-    dest: /etc/network/interfaces
-    src: interfaces

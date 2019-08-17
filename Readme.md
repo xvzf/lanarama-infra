@@ -12,6 +12,9 @@ Access Switches: Penguin Computing 4804i-r
 `core0` and `core1` are members of the AS64666 and peer with heaven0 (upstream gateway, AS65000). Access Switches have their own AS numbers (AS64701, AS64702, ...). Servers also have their own AS (AS65001, AS65002, ...). Every AS (except core and uplink) spin up their own `/24` IPv4 and `/64` IPv6 network. The IPv4 Network should be in the private range and will be NATed by the upstream gatway. IPv6 is just routed (and firewalled)!
 Core network has ECMP routing enabled with up to 4 ECMP path. This value might be increased if needed.
 
+#### Servers
+- `kvm0`-> AS65001
+
 #### IP Ranges
 1. IPv4
   - Access Switches: `192.168.<access-nr>.0/24` (access-nr < 200), e.g. `192.168.2.0/24` for Access Switch 2

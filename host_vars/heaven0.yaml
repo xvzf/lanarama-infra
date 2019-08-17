@@ -1,24 +1,49 @@
-network:
-  dhcp:
-    interfaces:
-      - name: eth0
-      - name: eth1
+frr:
+
+  hostname: heaven0
+
+  # IP Address configuration
+  interfaces:
+    - name: enp8s0f1
+      ipv4:
+        - 10.51.1.2/30
+      ipv6:
+        - fc00:0:511::2/126
+    - name: enp8s0f0
+      ipv4:
+        - 10.151.1.2/30
+      ipv6:
+        - fc00:1:511::2/126
+    - name: lo
+      ipv4:
+        - 10.64.50.1/32
+
+  # BGP Configuration
   bgp:
-    enabled: no
-  # v4:
-  #   ip: 172.17.0.1/24
-  # v6:
-  #   ip: fc13:37::1/64
-  # interfaces:
-  #   - name: eth2
-  #   - name: eth3
+    # Local AS + Router ID
+    local_as: 65001
+    router_id: 10.64.50.1
+
+    # BGP Peers
+    neighbors:
+      - addr: fc00:0:511::1
+        remote_as: 64666
+      - addr: fc00:1:511::1
+        remote_as: 64667
+
+    # Advertised networks
+    networks:
+      ipv4:
+        # This is our main gateway, advertise default route
+        - 0.0.0.0/0
+      ipv6:
+
+  # Static routes
   static:
-  # interfaces:
-  #     - name: none
-  #       v4:
-  #         ip: 10.0.0.101/24
-  #         gateway: 10.0.0.1
-  #       v6:
-  #         ip: fe80::101
-  #         netmask: 64
-  #         gateway:  fe80::1
+    v4:
+      # kvm0 internet access :-)
+      - dest: 10.52.1.2/32
+        next_hop: 10.51.1.1
+      - dest: 10.152.1.2/32
+        next_hop: 10.151.1.1
+    v6:
