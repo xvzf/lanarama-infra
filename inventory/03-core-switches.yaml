@@ -1,0 +1,11 @@
+all:
+  children:
+    core:
+      hosts:
+        # Arista DCS 7050SX-64
+        core0:
+          ansible_host: core0
+          ansible_python_interpreter: /usr/bin/python3
+        core1:
+          ansible_host: core1
+          ansible_python_interpreter: /usr/bin/python3
