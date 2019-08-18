@@ -1,15 +1,6 @@
 ---
-- include: packages.yaml
-- include: sudo.yaml
-- include: users.yaml
-- include: sshd.yaml
-- include: cloudinit.yaml
-- name: Install haveged
-  package:
-    name: haveged
-    state: present
-- name: Enable haveged
-  service:
-    name: haveged
-    state: started
-    enabled: yes
+- include: generic.yaml
+- include: debian.yaml
+  when:
+    - ansible_facts['os_family'] == "Debian"
+    - ansible_facts['distribution_major_version'] == "10"

@@ -15,5 +15,5 @@
   authorized_key:
     user: "{{ item.name }}"
     state: present
-    key: "https://github.com/{{ item.name }}.keys"
+    key: "{{ item.ssh_pubkey }}"
   with_items: "{{ users }}"

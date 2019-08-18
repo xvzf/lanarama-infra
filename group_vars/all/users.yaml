@@ -7,13 +7,14 @@ users:
     #
     # **NOTE** SSH Access is only allowed with a valid key.
     password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
-  - name: ljmanz
-    # Intentionally not a safe password, intendet to be changed on first login :-P
-    #
-    # **NOTE** SSH Access is only allowed with a valid key.
-    password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
-  - name: mmoa
-    # Intentionally not a safe password, intendet to be changed on first login :-P
-    #
-    # **NOTE** SSH Access is only allowed with a valid key.
-    password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+    ssh_pubkey: ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACtUop19rw2JaRVmd9o48X1wzY3pi3UMT0tSOpaT8jgYBB/cfCVqXoVOvhGzx8zIh01CYQo/W2SwNfjBKKjvrv2pQGuZqnUKDNTovGiXZicrA12M+VPLp3oDTuS4hvUSS+sdAZQomf/vBQP8Lo5S77WKYPQ0B+UEZE9scrAjF0/k+3bIw==
+ # - name: ljmanz
+ #   # Intentionally not a safe password, intendet to be changed on first login :-P
+ #   #
+ #   # **NOTE** SSH Access is only allowed with a valid key.
+ #   password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+ # - name: mmoa
+ #   # Intentionally not a safe password, intendet to be changed on first login :-P
+ #   #
+ #   # **NOTE** SSH Access is only allowed with a valid key.
+ #   password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
