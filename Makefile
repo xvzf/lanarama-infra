@@ -8,7 +8,5 @@ bootstrap:
 base:
 	ansible-playbook -i inventory base.yaml
 
-terraform:
-	cd terraform/ && terraform init
-	cd terraform/ && terraform plan
-	cd terraform/ && terraform apply
+provisioning:
+	ansible-playbook -i inventory_provisioning access_provisioning.yaml
