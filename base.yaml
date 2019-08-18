@@ -1,5 +1,9 @@
 ---
-- hosts: all
+- hosts:
+    - heaven0
+    - kvm0
+    - vm01
+    - vm03
   become: true
   roles:
     - base
