@@ -9,4 +9,4 @@ base:
 	ansible-playbook -i inventory base.yaml
 
 provisioning:
-	ansible-playbook -i inventory_provisioning access_provisioning.yaml
+	ansible-playbook -i inventory_provisioning access.yaml
