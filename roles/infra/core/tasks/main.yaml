@@ -1,0 +1,10 @@
+---
+- name: Send configuration for backbone/core switch
+  eos_config:
+    backup: yes
+    src: "{{ inventory_hostname }}.conf"
+    save_when: modified
+    backup_options:
+      filename: "{{ inventory_hostname }}.conf"
+      dir_path: ~/tmp/
+

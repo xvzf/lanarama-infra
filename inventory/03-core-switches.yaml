@@ -2,10 +2,19 @@ all:
   children:
     core:
       hosts:
-        # Arista DCS 7050SX-64
         core0:
-          ansible_host: core0
-          ansible_python_interpreter: /usr/bin/python3
+          ansible_connection: network_cli
+          ansible_network_os: eos
+          ansible_become_method: enable
+          ansible_user: admin
+          ansible_password: homosucker # This will be changed :-P
+          ansible_host: 10.64.66.6
+          ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q heaven0"'
         core1:
-          ansible_host: core1
-          ansible_python_interpreter: /usr/bin/python3
+          ansible_connection: network_cli
+          ansible_network_os: eos
+          ansible_become_method: enable
+          ansible_user: admin
+          ansible_password: homosucker # This will be changed :-P
+          ansible_host: 10.64.66.7
+          ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q heaven0"'
