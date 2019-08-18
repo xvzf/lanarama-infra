@@ -36,6 +36,7 @@ frr:
       ipv4:
         # This is our main gateway, advertise default route
         - 0.0.0.0/0
+        - 10.64.50.1/32
       ipv6:
 
   # Static routes
