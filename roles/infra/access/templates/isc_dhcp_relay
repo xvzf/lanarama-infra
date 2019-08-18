@@ -1,0 +1,11 @@
+#
+# Ansible managed
+#
+# THIS WILL BE REPLACED IN THE NEXT DEPLOYMENT RUN!
+#
+
+# DHCP relay server
+SERVERS="{{ event_network.dhcp.relay_ip }}"
+
+INTERFACES="bridge.100 swp49 swp50"
+OPTIONS=""

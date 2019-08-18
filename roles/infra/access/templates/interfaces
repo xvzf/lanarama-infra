@@ -1,0 +1,444 @@
+#
+# Ansible managed
+#
+# THIS WILL BE REPLACED IN THE NEXT DEPLOYMENT RUN!
+#
+
+# Loopback
+auto lo
+iface lo inet loopback
+
+# Management interface used for initial deployment/troubleshooting
+auto eth0
+iface eth0
+{{ for ip in management.ips }}
+    address {{ ip }}
+{{ endfor }}
+
+# I don't like the default vlan for access :-P
+auto bridge
+iface bridge
+    bridge-vlan-aware yes
+    bridge-ports swp1 swp10 swp11 swp12 swp13 swp14 swp15 swp16 swp17 swp18 swp19 swp2 swp20 swp21 swp22 swp23 swp24 swp25 swp26 swp27 swp28 swp29 swp3 swp30 swp31 swp32 swp33 swp34 swp35 swp36 swp37 swp38 swp39 swp4 swp40 swp41 swp42 swp43 swp44 swp45 swp46 swp47 swp48 swp5 swp6 swp7 swp8 swp9
+    bridge-vids 100
+    bridge-stp off
+
+# Access VLAN
+auto bridge.100
+iface bridge.100
+    alias "access1"
+    address 192.168.{{ access.id }}.1/24
+
+# Access ports
+auto swp1
+iface swp1
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp10
+iface swp10
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp11
+iface swp11
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp12
+iface swp12
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp13
+iface swp13
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp14
+iface swp14
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp15
+iface swp15
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp16
+iface swp16
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp17
+iface swp17
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp18
+iface swp18
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp19
+iface swp19
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp2
+iface swp2
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp20
+iface swp20
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp21
+iface swp21
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp22
+iface swp22
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp23
+iface swp23
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp24
+iface swp24
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp25
+iface swp25
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp26
+iface swp26
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp27
+iface swp27
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp28
+iface swp28
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp29
+iface swp29
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp3
+iface swp3
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp30
+iface swp30
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp31
+iface swp31
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp32
+iface swp32
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp33
+iface swp33
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp34
+iface swp34
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp35
+iface swp35
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp36
+iface swp36
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp37
+iface swp37
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp38
+iface swp38
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp39
+iface swp39
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp4
+iface swp4
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp40
+iface swp40
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp41
+iface swp41
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp42
+iface swp42
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp43
+iface swp43
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp44
+iface swp44
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp5
+iface swp5
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp6
+iface swp6
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp7
+iface swp7
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp8
+iface swp8
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp9
+iface swp9
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp45
+iface swp45
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp46
+iface swp46
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp47
+iface swp47
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+auto swp48
+iface swp48
+    alias "Access"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+
+# BGP Uplink core0
+auto swp49
+iface swp49
+    alias "Uplink"
+
+# BGP Uplink core1
+auto swp50
+iface swp50
+    alias "Uplink"
+
+# high speed ports for daisy chaining
+auto swp51
+iface swp51
+    alias "HighspeedDaisyChain"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100
+
+# high speed ports for daisy chaining
+auto swp52
+iface swp52
+    alias "HighspeedDaisyChain"
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    mstpctl-portadminedge yes
+    bridge-access 100

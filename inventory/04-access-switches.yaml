@@ -1,0 +1,6 @@
+all:
+  children:
+    access:
+      hosts:
+        sw155:
+          ansible_host: sw155

@@ -1,0 +1,49 @@
+---
+- name: generate interface configuration
+  template:
+    src: interfaces
+    dest: /etc/network/interfaces
+  register: interfaces_conf
+
+- name: copy quagga static configuration
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/quagga/{{ item }}"
+  with_items:
+    - zebra.conf
+    - bgpd.conf
+    - daemons
+  register: quagga_static_conf
+
+- name: generate quagga configuration
+  copy:
+    src: Quagga.conf
+    dest: /etc/quagga/Quagga.conf
+  register: quagga_conf
+
+- name: generate dhcp relay configuration
+  copy:
+    src: isc_dhcp_relay
+    dest: /etc/default/isc_dhcp_relay
+  register: isc_dhcp_relay_conf
+
+- name: Restart and enable switchd
+  service:
+    name: switchd
+    state: restarted
+    enabled: yes
+  when: interfaces_conf.changed
+
+- name: Restart and enable quagga
+  service:
+    name: quagga
+    state: restarted
+    enabled: yes
+  when: quagga_conf.changed or quagga_static_conf.changed
+
+- name: Restart and enable isc dhcp relay
+  service:
+    name: isc_dhcp_relay
+    state: restarted
+    enabled: yes
+  when: isc_dhcp_relay_conf.changed
