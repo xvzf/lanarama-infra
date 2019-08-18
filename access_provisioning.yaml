@@ -1,0 +1,6 @@
+---
+- hosts: access
+  become: yes
+  roles:
+    - base
+    - infra/access
