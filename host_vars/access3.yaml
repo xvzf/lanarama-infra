@@ -1,0 +1,5 @@
+management:
+  ips:
+    - fe80::154/64
+access:
+  id: 3

@@ -1,0 +1,34 @@
+# IPv6 LinkLocal are temporary for provisioning!
+all:
+  children:
+    access:
+      hosts:
+        # Penguin computing :-)
+        access1:
+          ansible_host: fe80::152%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access2:
+          ansible_host: fe80::153%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access3:
+          ansible_host: fe80::154%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access4:
+          ansible_host: fe80::155%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access5:
+          ansible_host: fe80::156%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access6:
+          ansible_host: fe80::157%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!
+        access7:
+          ansible_host: fe80::158%en0
+          ansible_user: cumulus
+          ansible_password: CumulusLinux!

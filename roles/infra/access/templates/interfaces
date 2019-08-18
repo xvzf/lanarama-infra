@@ -11,9 +11,9 @@ iface lo inet loopback
 # Management interface used for initial deployment/troubleshooting
 auto eth0
 iface eth0
-{{ for ip in management.ips }}
-    address {{ ip }}
-{{ endfor }}
+{% for ip in management.ips %}
+    address {{ ip }}
+{% endfor %}
 
 # I don't like the default vlan for access :-P
 auto bridge

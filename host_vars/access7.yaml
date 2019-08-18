@@ -1,0 +1,5 @@
+management:
+  ips:
+    - fe80::158/64
+access:
+  id: 7
