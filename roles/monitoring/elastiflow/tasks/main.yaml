@@ -1,0 +1,84 @@
+---
+- name: create elastiflow network
+  docker_network:
+    name: elastiflow
+    state: present
+
+- name: create volume for elastiflow
+  docker_volume:
+    name: elastiflow_data
+    state: present
+
+- name: create elastiflow elasticsearch instance
+  docker_container:
+    name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.0.1
+    networks_cli_compatible: yes
+    networks:
+      - name: elastiflow
+    volumes:
+      - elastiflow_data:/usr/share/elasticsearch/data
+    env:
+      ES_JAVA_OPTS: "-Xms32g -Xmx32g"
+      cluster.name: "elastiflow"
+      bootstrap.memory_lock: "true"
+      network.host: "0.0.0.0"
+      http.port: "9200"
+      discovery.type: "single-node"
+      indices.query.bool.max_clause_count: "8192"
+      search.max_buckets: "100000"
+      action.destructive_requires_name: "true"
+    state: started
+    restart: yes
+    restart_policy: always
+
+- name: create logstash instance for ealstifeed
+  docker_container:
+    name: elastifeed_logstash
+    image: robcowart/elastiflow-logstash-oss:3.5.0_7.0.1
+    networks_cli_compatible: yes
+    networks:
+      - name: elastiflow
+    published_ports:
+      - 6343:6343
+      - 6343:6343/UDP
+    env:
+      LS_JAVA_OPTS: "-Xms6g -Xmx6g"
+
+      # ElastiFlow global configuration
+      ELASTIFLOW_DEFAULT_APPID_SRCTYPE: "__UNKNOWN"
+
+      # Name resolution option
+      ELASTIFLOW_RESOLVE_IP2HOST: "false"
+      ELASTIFLOW_NAMESERVER: "9.9.9.9"
+
+      ELASTIFLOW_NETFLOW_IPV4_PORT: "2055"
+      ELASTIFLOW_SFLOW_IPV4_PORT: "6343"
+      ELASTIFLOW_IPFIX_TCP_IPV4_PORT: "4739"
+
+      ELASTIFLOW_ES_HOST: "http://elasticsearch:9200"
+    state: started
+    restart_policy: always
+  register: logstash_container
+
+- debug:
+    var: logstash_container
+
+- name: create kibana instance
+  docker_container:
+    name: kibana
+    image: docker.elastic.co/kibana/kibana-oss:7.0.1
+    networks_cli_compatible: yes
+    networks:
+      - name: elastiflow
+    published_ports:
+      - 5601:5601
+    env:
+      SERVER_HOST: "0.0.0.0"
+      SERVER_PORT: "5601"
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
+      KIBANA_DEFAULTAPPID: "dashboard/653cf1e0-2fd2-11e7-99ed-49759aed30f5"
+      LOGGING_QUIET: "true"
+
+    state: started
+    restart_policy: always
