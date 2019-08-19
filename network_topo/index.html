@@ -36,7 +36,7 @@
     
     
       
-        <title>Network Topology - Lanarama Infrastrucutre Documentation</title>
+        <title>Topology - Lanarama Infrastrucutre Documentation</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Network Topology
+                Topology
               
             </span>
           
@@ -170,8 +170,8 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Lanarama Infrastructure & Server Setup" class="md-nav__link">
-      Lanarama Infrastructure & Server Setup
+    <a href=".." title="About" class="md-nav__link">
+      About
     </a>
   </li>
 
@@ -182,8 +182,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../fail/" title="Fails (read this)" class="md-nav__link">
-      Fails (read this)
+    <a href="../fail/" title="Read this first" class="md-nav__link">
+      Read this first
     </a>
   </li>
 
@@ -192,41 +192,26 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../network_bootstrap/" title="Network Bootstrap" class="md-nav__link">
-      Network Bootstrap
-    </a>
-  </li>
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../network_connectivity/" title="Network Connectivity" class="md-nav__link">
-      Network Connectivity
-    </a>
-  </li>
-
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../network_debugging/" title="Network debugging" class="md-nav__link">
-      Network debugging
-    </a>
-  </li>
-
-    
-      
-      
-      
+    <label class="md-nav__link" for="nav-3">
+      Network
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Network
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
   
 
@@ -239,11 +224,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Network Topology
+        Topology
       </label>
     
-    <a href="./" title="Network Topology" class="md-nav__link md-nav__link--active">
-      Network Topology
+    <a href="./" title="Topology" class="md-nav__link md-nav__link--active">
+      Topology
     </a>
     
       
@@ -353,6 +338,35 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network_connectivity/" title="Connectivity" class="md-nav__link">
+      Connectivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network_debugging/" title="Debugging" class="md-nav__link">
+      Debugging
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -538,10 +552,20 @@
 </ul>
 <h1 id="connecting-to-the-switches">Connecting to the switches</h1>
 <p>Every switch has a unique IP which is advertised and should be available from each point in the network. It is derived from the AS number.</p>
-<p>Some examples:
-- <em>64666</em> -&gt; <em>10.64.66.6/32</em>
-- <em>64702</em> -&gt; <em>10.64.70.2/32</em>
-- <em>65001</em> -&gt; <em>10.65.0.1/32</em></p>
+<p>Some examples:</p>
+<ul>
+<li><em>64666</em> -&gt; <em>10.64.66.6/32</em></li>
+<li><em>64702</em> -&gt; <em>10.64.70.2/32</em></li>
+<li><em>65001</em> -&gt; <em>10.65.0.1/32</em></li>
+</ul>
+<h1 id="peering">Peering</h1>
+<blockquote>
+<p><strong>ATTENTION</strong> The BGP daemon on the core switches is listening only on the IPv6 address range! (more specific: <code>fc00::/16</code>)</p>
+</blockquote>
+<p>Peering is possible at the coreswitches on Port 1-16 (10 Gbit) as well as 49-52 (40 Gbit, 51 and 52 split up to 4x10G for Server connections) following this schema (IPv4, IPv6). All ASes are accepted!</p>
+<pre><code>  10.&lt;core-id&gt;.&lt;port-index&gt;.1/30
+  fc00:&lt;core-id&gt;:&lt;port-index&gt;::1/126
+</code></pre>
                 
                   
                 
@@ -562,7 +586,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../network_debugging/" title="Network debugging" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../fail/" title="Read this first" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -571,11 +595,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Network debugging
+                Read this first
               </span>
             </div>
           </a>
         
+        
+          <a href="../network_connectivity/" title="Connectivity" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Connectivity
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
