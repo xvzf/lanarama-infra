@@ -53,6 +53,16 @@ We currently have 7 access switches planned (*Penguin Computing 4804i-q*) which 
 Every switch has a unique IP which is advertised and should be available from each point in the network. It is derived from the AS number.
 
 Some examples:
+
 - *64666* -> *10.64.66.6/32*
 - *64702* -> *10.64.70.2/32*
 - *65001* -> *10.65.0.1/32*
+
+# Peering
+> **ATTENTION** The BGP daemon on the core switches is listening only on the IPv6 address range! (more specific: `fc00::/16`)
+
+Peering is possible at the coreswitches on Port 1-16 (10 Gbit) as well as 49-52 (40 Gbit, 51 and 52 split up to 4x10G for Server connections) following this schema (IPv4, IPv6). All ASes are accepted!
+```
+  10.<core-id>.<port-index>.1/30
+  fc00:<core-id>:<port-index>::1/126
+```
