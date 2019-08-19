@@ -9,3 +9,5 @@ nav:
       - 'Topology': 'network_topo.md'
       - 'Connectivity': 'network_connectivity.md'
       - 'Debugging': 'network_debugging.md'
+      - 'Initial Bootstrap': 'network_bootstrap.md'
+    Monitoring: 'monitoring.md'
