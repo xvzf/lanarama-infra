@@ -1,3 +1,11 @@
 site_name: Lanarama Infrastrucutre Documentation
 theme:
   name: 'material'
+
+nav:
+  - About: 'index.md'
+  - Read this first: 'fail.md'
+  - Network:
+      - 'Topology': 'network_topo.md'
+      - 'Connectivity': 'network_connectivity.md'
+      - 'Debugging': 'network_debugging.md'
