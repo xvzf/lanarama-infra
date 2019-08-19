@@ -3,7 +3,9 @@
     - heaven0
     - kvm0
     - vm01
+    - vm02
     - vm03
+    - vm04
   become: true
   roles:
     - base
