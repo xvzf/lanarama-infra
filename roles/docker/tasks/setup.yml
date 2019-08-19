@@ -1,0 +1,22 @@
+---
+- name: Ensure old versions of Docker are not installed.
+  package:
+    name:
+      - docker
+      - containerd
+      - runc
+    state: absent
+
+- name: Ensure dependencies are installed.
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg2
+      - software-properties-common
+    state: present
+
+- name: Execute script from get.docker.com
+  shell: |
+    curl https://get.docker.com/ | sudo bash

@@ -2,5 +2,17 @@ all:
   children:
     access:
       hosts:
-        sw155:
-          ansible_host: sw155
+        access1:
+          ansible_host: access1
+        access2:
+          ansible_host: access2
+        access3:
+          ansible_host: access3
+        access4:
+          ansible_host: access4
+        access5:
+          ansible_host: access5
+        access6:
+          ansible_host: access6
+        access7:
+          ansible_host: access7

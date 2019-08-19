@@ -1,0 +1,3 @@
+traefik:
+  acme_email: matthias@lanarama.de
+  docker_network: traefik_proxy

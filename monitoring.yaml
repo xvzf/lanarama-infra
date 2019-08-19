@@ -1,0 +1,8 @@
+---
+- hosts:
+    - vm03
+  become: true
+  roles:
+    - docker
+    - traefik
+    - monitoring/prometheus

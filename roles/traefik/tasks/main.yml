@@ -1,0 +1,73 @@
+---
+- name: Traefik configuration directories
+  file:
+    path: /etc/traefik
+    state: directory
+
+- name: Traefik configuration
+  template:
+    src: traefik.toml
+    dest: /etc/traefik/traefik.toml
+    mode: 0644
+    backup: yes
+
+- name: ACME storage
+  file:
+    path: /etc/traefik/acme.json
+    state: file
+    mode: 0600
+    backup: yes
+  ignore_errors: yes
+  register: acme_storage_check
+
+- name: Create ACME directory
+  file:
+    path: /etc/traefik/
+    state: directory
+  when: acme_storage_check.failed
+
+- name: Create ACME storage file
+  file:
+    path: /etc/traefik/acme.json
+    state: touch
+    mode: 0600
+  when: acme_storage_check.failed or acme_storage_check.state == "absent"
+
+- name: Create docker network for web applications
+  docker_network:
+    name: "{{ traefik.docker_network }}"
+    enable_ipv6: yes
+    ipam_config:
+      - subnet: fd00:dead:b33f::/48
+
+- name: Traefik container
+  docker_container:
+    name: traefik
+    image: traefik
+    state: started
+    restart_policy: always
+    command: --api --docker
+    ports:
+      - "80:80"               # HTTP endpoint
+      - "443:443"             # HTTPS endpoint
+      - "127.0.0.1:8080:8080" # API Port
+    networks_cli_compatible: yes
+    networks:
+      - name: "{{ traefik.docker_network }}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/traefik/traefik.toml:/traefik.toml
+      - /etc/traefik/acme.json:/acme.json
+
+- name: Create IPv6 NAT Container
+  docker_container:
+    name: ipv6nat
+    image: robbertkl/ipv6nat
+    state: started
+    restart_policy: always
+    privileged: true
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /lib/modules:/lib/modules:ro
+

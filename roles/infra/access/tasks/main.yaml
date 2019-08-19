@@ -27,6 +27,12 @@
     dest: /etc/default/isc_dhcp_relay
   register: isc_dhcp_relay_conf
 
+- name: generate snmpd configuration
+  template:
+    src: snmpd.conf
+    dest: /etc/snmp/snmpd.conf
+  register: snmp_config
+
 - name: Restart and enable switchd
   sysvinit:
     name: switchd
@@ -47,3 +53,15 @@
     state: restarted
     enabled: yes
   when: isc_dhcp_relay_conf.changed
+
+- name: Start and enable snmpd
+  sysvinit:
+    name: snmpd
+    state: started
+    enabled: yes
+
+- name: Restart snmpd
+  sysvinit:
+    name: snmpd
+    state: restarted
+  when: snmp_config.changed
