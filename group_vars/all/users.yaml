@@ -8,6 +8,13 @@ users:
     # **NOTE** SSH Access is only allowed with a valid key.
     password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
     ssh_pubkey: ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACtUop19rw2JaRVmd9o48X1wzY3pi3UMT0tSOpaT8jgYBB/cfCVqXoVOvhGzx8zIh01CYQo/W2SwNfjBKKjvrv2pQGuZqnUKDNTovGiXZicrA12M+VPLp3oDTuS4hvUSS+sdAZQomf/vBQP8Lo5S77WKYPQ0B+UEZE9scrAjF0/k+3bIw==
+
+  - name: voices
+    # Intentionally not a safe password, intendet to be changed on first login :-P
+    #
+    # **NOTE** SSH Access is only allowed with a valid key.
+    password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+    ssh_pubkey: ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAgEAkKgltxHj54QAbl15k5cKzmusWFShrqrXgPzz/13n320c3bGcTf8WkES2ooJ26hxCyhSd2y6emJGCnzuFJT+rXyTuAQYMsYtfCeNNSY4T2WT2PQZRZkEdhRCWWVohtFeBLE+VWXsaBED1Q4hDsAropCZFZcmaJT2ZyHlPeu8Q/1GKzdGJs2sx5dNU/F/d3XBnVLRBTyko7GXJLEeu3+hoHd47PrUK40E8zr1unx4tIFd7pqOThAIT0NeTf3UqOigdrQMu9p6JNU+kose8UA64z/zLe4kP7dU2yRJIzQhWIXWW2GCR8C+9vS4INOOGBVgnlfSI/CdOaEYhyKu6aygrD0vTcKscGmEXNZW3tVTVXElyqLY+Unf8d/fSwEWBuYs6lXFYaT8wYTSdwzTmmmTQewiirUQojqsiIA9mCfFYZZlnST1fwE+4jcO//SREc10ipEJUkDldw/gLuHQn+F7CEJv0u5/1kXaM50sGceuQcfSi11hQSdtnpqJhWhPvfT81BvEspYUAfwJpuPkhboHGfjtxIPWqq+aGrD2GVAGl9frC1bfdV4306id82Sv7kbYow4Z28g/hG75w6/1kaVZ9kMl/oY0F34LBmnzUI/ZhitARK1Fb7LInnCL6Spwsk7KqFnxC/Q/3m6GiyfG7HbOOfxO/jT7MPmX5WBNyZR2bdmk=
  # - name: ljmanz
  #   # Intentionally not a safe password, intendet to be changed on first login :-P
  #   #
