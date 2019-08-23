@@ -4,7 +4,7 @@ event_network:
     - 1.1.1.1
   dhcp:
     relay_ip: 192.168.122.10
-    domain: lanarama.de
+    domain: lanarama.local
     default_lease_time: 172800
     max_lease_time: 259200
     subnets:

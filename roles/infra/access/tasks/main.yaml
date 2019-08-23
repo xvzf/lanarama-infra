@@ -24,7 +24,7 @@
 - name: generate dhcp relay configuration
   template:
     src: isc_dhcp_relay
-    dest: /etc/default/isc_dhcp_relay
+    dest: /etc/default/isc-dhcp-relay
   register: isc_dhcp_relay_conf
 
 - name: generate snmpd configuration
