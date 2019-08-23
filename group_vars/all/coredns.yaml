@@ -1,5 +1,4 @@
 coredns:
   names:
-    - name:
-      ipv4:
-      ipv6:
+    - name: access1.lanarama.local 
+      ip: 10.64.70.1
