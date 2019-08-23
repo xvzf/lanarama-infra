@@ -1,0 +1,28 @@
+---
+- import_tasks: install.yaml
+  become: true
+
+- name: Append static names to /etc/hosts
+  blockinfile:
+    state: present
+    insertafter: EOF
+    create: yes
+    path: /etc/custom_hosts
+    block: "{{ lookup('file', 'hosts') }}"
+
+- name: Copy configuration file (Corefile)
+  template:
+    src: "Corefile"
+    dest: /etc/coredns/Corefile
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart coredns 
+  become: true
+
+- name: Ensure CoreDNS is enabled on boot
+  become: true
+  systemd:
+    daemon_reload: true
+    name: coredns
+    enabled: true

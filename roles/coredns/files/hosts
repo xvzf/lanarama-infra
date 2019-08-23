@@ -1,0 +1,4 @@
+# TODO Add the actual names! Or should we set up something more complicated to be able to assign names more dynamically?
+#<ip-address>	<hostname.domain.org>	<hostname>
+10.52.1.23      testing.lanarama.local   testing
+fc00:0:512::2   testing.lanarama.local   testing

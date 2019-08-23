@@ -3,3 +3,8 @@
   become: true
   roles:
     - dhcpd
+
+- hosts: dnsd
+  become: true
+  roles:
+    - coredns
