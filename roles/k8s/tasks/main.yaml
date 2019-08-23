@@ -18,26 +18,29 @@
 
 - name: Install k3s single node cluster
   shell: |
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker --no-deploy traefik" sh -
-  when: k3s_installed.failed
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--no-deploy traefik" sh -
+
+- name: Wait for k3s
+  wait_for:
+    host: 127.0.0.1
+    port: 6443
+    state: started
 
 - name: create /root/.kube
   file:
     path: /root/.kube
     state: directory
     mode: 0700
-  when: k3s_installed.failed
 
 - name: Copy kubeconfig
   copy:
-    remote_src: /etc/rancher/k3s/k3s.yaml
+    src: /etc/rancher/k3s/k3s.yaml
+    remote_src: yes
     dest: /root/.kube/config
-  when: k3s_installed.failed
 
 - name: Install local-path storage provisioner
   shell: |
     kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
-  when: k3s_installed.failed
 
 - include: helm.yaml
 
@@ -56,7 +59,6 @@
 
 - name: upgrade traefik
   shell: |
-    helm upgrade traefik -f /opt/traefik_valeus.yaml stable/traefik
+    helm upgrade traefik -f /opt/traefik_values.yaml stable/traefik
   when:
-    - helm_install.failed
     - traefik_values.changed
