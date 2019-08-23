@@ -40,3 +40,23 @@
   when: k3s_installed.failed
 
 - include: helm.yaml
+
+- name: traefik helm override
+  template:
+    src: traefik_values.yaml
+    dest: /opt/traefik_values.yaml
+  register: traefik_values
+
+- name: install traefik
+  shell: |
+    helm install --namespace kube-system --name traefik \
+      -f /opt/traefik_values.yaml \
+      stable/traefik
+  register: helm_install
+
+- name: upgrade traefik
+  shell: |
+    helm upgrade traefik -f /opt/traefik_valeus.yaml stable/traefik
+  when:
+    - helm_install.failed
+    - traefik_values.changed

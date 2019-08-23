@@ -1,0 +1,31 @@
+rbac:
+  enabled: true
+
+ssl:
+  enabled: true
+  # @TODO as soon as acme certs are available :-P
+  # enforced : true
+  generateTLS: true
+
+# @TODO Enable automatic certificates for the dashboard :)
+acme:
+  enabled: {{ k8s.traefik.acme.enabled }}
+  email: {{ k8s.traefik.acme.email }}
+  persistence:
+    enabled: true
+    storageClass: local-path
+    accessMode: ReadWriteOnce
+    # Note: local-path does not care about the size right now
+    size: 1Gi
+
+# Enable traefik dashboard
+dashboard:
+  enabled: true
+  # Change later on!
+  domain: {{ k8s.traefik.dashboard.domain }}
+
+# Metrics <3
+metrics:
+  prometheus:
+    enabled: true
+    restrictAccess: true

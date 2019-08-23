@@ -1,3 +1,9 @@
 k8s:
   helm:
     version: v2.14.3
+  traefik:
+    acme:
+      enabled: true
+      email: matthias@lanarama.de
+    dashboard:
+      domain: lanarama.local
