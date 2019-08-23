@@ -1,0 +1,42 @@
+---
+- name: Check if k3s exists
+  stat:
+    path: /usr/local/bin/k3s
+  register: k3s_installed
+
+- name: Install curl
+  package:
+    name:
+      - curl
+    state: present
+
+- pip:
+    name:
+      - openshift
+      - pyhelm
+    state: present
+
+- name: Install k3s single node cluster
+  shell: |
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--docker --no-deploy traefik" sh -
+  when: k3s_installed.failed
+
+- name: create /root/.kube
+  file:
+    path: /root/.kube
+    state: directory
+    mode: 0700
+  when: k3s_installed.failed
+
+- name: Copy kubeconfig
+  copy:
+    remote_src: /etc/rancher/k3s/k3s.yaml
+    dest: /root/.kube/config
+  when: k3s_installed.failed
+
+- name: Install local-path storage provisioner
+  shell: |
+    kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+  when: k3s_installed.failed
+
+- include: helm.yaml

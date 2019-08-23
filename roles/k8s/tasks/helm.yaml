@@ -1,0 +1,54 @@
+- name: Check if helm is installed
+  stat:
+    path: /usr/local/bin/helm
+  register: helm_installed
+
+- name: download helm
+  become: false
+  get_url:
+    url: "https://get.helm.sh/helm-{{ k8s.helm.version }}-linux-amd64.tar.gz"
+    dest: "/tmp/helm-{{ k8s.helm.version }}.linux-amd64.tar.gz"
+  retries: 3
+  delay: 1
+  delegate_to: localhost
+  when: helm_installed.failed
+
+- name: unpack helm binary
+  become: false
+  unarchive:
+    src: "/tmp/helm-{{ k8s.helm.version }}.linux-amd64.tar.gz"
+    dest: /tmp
+    creates: "/tmp/linux-amd64/helm"
+  delegate_to: localhost
+  when: helm_installed.failed
+
+- name: create /usr/local/bin
+  file:
+    path: /usr/local/bin
+    state: directory
+    mode: 0755
+  when: helm_installed.failed
+
+- name: copy helm binary to /usr/local/bin
+  copy:
+    src: "/tmp/linux-amd64/helm"
+    dest: /usr/local/bin/helm
+    mode: 0755
+  when: helm_installed.failed
+
+- name: Create service account
+  shell: |
+    kubectl -n kube-system create serviceaccount tiller
+  when: helm_installed.failed
+
+- name: Create clusterrole binding
+  shell: |
+    kubectl create clusterrolebinding tiller \
+      --clusterrole=cluster-admin \
+      --serviceaccount=kube-system:tiller
+  when: helm_installed.failed
+
+- name: initialize helm
+  shell: |
+    helm init
+  when: helm_installed.failed

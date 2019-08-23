@@ -12,9 +12,6 @@ all:
           ansible_python_interpreter: /usr/bin/python3
     monitoring:
       hosts:
-        vm03:
-          ansible_host: vm03
-          ansible_python_interpreter: /usr/bin/python3
-        vm04:
-          ansible_host: vm04
+        k8s:
+          ansible_host: k8s
           ansible_python_interpreter: /usr/bin/python3

@@ -5,8 +5,7 @@
     - game0
     - vm01
     - vm02
-    - vm03
-    - vm04
+    - k8s
   become: true
   roles:
     - base
