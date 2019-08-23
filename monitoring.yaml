@@ -1,21 +1,5 @@
----
 - hosts:
-  - vm02
-  - vm03
-  - vm04
+    - k8s
   become: yes
   roles:
-   - docker
-
-- hosts:
-    - vm03
-  become: yes
-  roles:
-   - traefik
-    - monitoring/prometheus
-
-- hosts:
-    - vm04
-  become: yes
-  roles:
-    - monitoring/elastiflow
+    - monitoring/infra

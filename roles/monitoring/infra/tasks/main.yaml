@@ -1,0 +1,25 @@
+---
+- name: deploy prometheus snmp exporter
+  shell: |
+    helm install --namespace monitoring --name prometheus-snmp-exporter stable/prometheus-snmp-exporter || true
+
+- name: prometheus operator helm override
+  template:
+    src: prometheus_values.yaml
+    dest: /opt/prometheus_values.yaml
+  register: prometheus_values
+
+- name: install prometheus operator
+  shell: |
+    helm install --namespace monitoring --name prometheus \
+      -f /opt/prometheus_values.yaml \
+      stable/prometheus-operator
+  ignore_errors: yes
+  register: helm_install
+
+- name: upgrade prometheus operator
+  shell: |
+    helm upgrade prometheus -f /opt/prometheus_values.yaml stable/prometheus-operator
+  when:
+    - helm_install.failed
+    - prometheus_values.changed
