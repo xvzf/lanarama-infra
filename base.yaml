@@ -2,6 +2,7 @@
 - hosts:
     - heaven0
     - kvm0
+    - game0
     - vm01
     - vm02
     - vm03

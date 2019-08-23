@@ -10,3 +10,8 @@ all:
         heaven0:
           ansible_host: heaven0
           ansible_python_interpreter: /usr/bin/python3
+    gamehosts:
+      hosts:
+        game0:
+          ansible_host: game0
+          ansible_python_interpreter: /usr/bin/python3
