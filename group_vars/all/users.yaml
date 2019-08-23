@@ -20,8 +20,9 @@ users:
  #   #
  #   # **NOTE** SSH Access is only allowed with a valid key.
  #   password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
- # - name: mmoa
- #   # Intentionally not a safe password, intendet to be changed on first login :-P
- #   #
- #   # **NOTE** SSH Access is only allowed with a valid key.
- #   password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+  - name: mmmoa
+    # Intentionally not a safe password, intendet to be changed on first login :-P
+    #
+    # **NOTE** SSH Access is only allowed with a valid key.
+    password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+    ssh_pubkey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCZlDsQFS6I9fTMQE3onnoVhiOD/BN1ax5WoeqV4Jnjs52cFxG6XE0sd4F0knQVER1LTRvMZFaCIKIuUUvJB8lr6zMhPbspl8gjPaSoSyP/xSUUy73tjg/fru/2CxDqcXAaq2YE6avD+cGoR2YPVNNE02f8dgrwoPZxOykaP2eGVrFwuAdTESZTszy2G7uVEcUTYUh/rMDgJqlRw7rP+sn1yeRUcET2oiv65uqOMN+LJKMwYJRmFmcCiUsW4janjIs46NpkleANSauCqZLJga2d+PwoEE0rDhxmNcTDU2xsXq8PIpIHr9HHV8dYf441Phm6B7ivVySdgvoTYhGp6BkrBh0wla30Zj3IdLM+xIWrj+1I9Ruwgvhz0MZ06weaqs/MRd0XNMx4DjDaQC4TWD5RdIhzMVsF9uSckhS2EpNmMNHc4vMIVcwhBNqkYsfDoB8iAgQXiSyRm18kUxqDXOXp/MY0dTPKs72/2x04RYEooaqiVM8isq5ZwUaGdJbB/aWYOa9Qr2MSQEKY0p9tp/fkTs6SQTHBYkXIlaEmo5NVpOEW/uwy1oVC4QVGFxtS4dw6HqUs18OGGR0hLAUYQXYASO7KdNObDgx5yndQhDVxPt3BPuHBIB0qZMfs4dtQaw29Rl2idJi9yuZnQFyhItDeDGgirnodIONGQ/wVxFcqJQ==
