@@ -10,7 +10,7 @@
 }
 
 lanarama.local {
-    hosts /etc/custom_hosts
+    hosts /etc/dns_internal_hosts
     prometheus localhost:9253
     import base
 }

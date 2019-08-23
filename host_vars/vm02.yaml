@@ -2,8 +2,6 @@
   coredns_version: 1.6.2
   coredns_port: 53
 
-  coredns_config_file: "Corefile"
-
   coredns_system_group: "coredns"
   coredns_system_user: "{{ coredns_system_group }}"
     
