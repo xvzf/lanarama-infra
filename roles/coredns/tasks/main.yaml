@@ -1,0 +1,29 @@
+---
+- import_tasks: install.yaml
+  become: true
+
+- name: Write Lanarama - internal names for DNS
+  template:
+    src: "hosts.j2"
+    dest: /etc/dns_internal_hosts
+    owner: "{{ coredns_system_user }}"
+    group: "{{ coredns_system_group }}"
+    mode: 0644
+  become: true
+
+- name: Copy configuration file (Corefile)
+  template:
+    src: "Corefile"
+    dest: /etc/coredns/Corefile
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart coredns 
+  become: true
+
+- name: Ensure CoreDNS is enabled on boot
+  become: true
+  systemd:
+    daemon_reload: true
+    name: coredns
+    enabled: true

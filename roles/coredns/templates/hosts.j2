@@ -1,0 +1,6 @@
+{{ ansible_managed | comment }}
+
+#<ip address>       <hostname.domain>       <hostname>
+{% for item in coredns.names %}
+{{ item.ip }}     {{ item.name }}
+{% endfor %}
