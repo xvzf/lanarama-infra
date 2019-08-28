@@ -1,4 +1,36 @@
 coredns:
   names:
+    - name: core0.lanarama.local 
+      ip: 10.64.66.6
+    - name: core1.lanarama.local 
+      ip: 10.64.66.7
     - name: access1.lanarama.local 
       ip: 10.64.70.1
+    - name: access2.lanarama.local 
+      ip: 11.64.70.2
+    - name: access3.lanarama.local 
+      ip: 11.64.70.3
+    - name: access4.lanarama.local 
+      ip: 11.64.70.4
+    - name: access5.lanarama.local 
+      ip: 11.64.70.5
+    - name: access6.lanarama.local 
+      ip: 11.64.70.6
+    - name: access7.lanarama.local 
+      ip: 11.64.70.7
+    - name: heaven0.lanarama.local 
+      ip: 10.65.0.1
+    - name: kvm0.lanarama.local 
+      ip: 10.64.80.1
+    - name: dhcp.lanarama.local 
+      ip: 192.168.122.10
+    - name: dns.lanarama.local 
+      ip: 192.168.122.11
+    - name: k8s.lanarama.local 
+      ip: 192.168.122.20
+    - name: ts.lanarama.local 
+      ip: 192.168.122.20
+    - name: dashboard.lanarama.local 
+      ip: 192.168.122.20
+    - name: prometheus.lanarama.local 
+      ip: 192.168.122.20
