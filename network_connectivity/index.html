@@ -254,8 +254,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#access" title="Access" class="md-nav__link">
-    Access
+  <a href="#uplink" title="Uplink" class="md-nav__link">
+    Uplink
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gateways" title="Gateway(s)" class="md-nav__link">
+    Gateway(s)
   </a>
   
     <nav class="md-nav">
@@ -270,6 +278,45 @@
         
           <li class="md-nav__item">
   <a href="#ipv6" title="IPv6" class="md-nav__link">
+    IPv6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routed" title="Routed" class="md-nav__link">
+    Routed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" title="Access" class="md-nav__link">
+    Access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" title="IPv4" class="md-nav__link">
+    IPv4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6_1" title="IPv6" class="md-nav__link">
     IPv6
   </a>
   
@@ -387,8 +434,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#access" title="Access" class="md-nav__link">
-    Access
+  <a href="#uplink" title="Uplink" class="md-nav__link">
+    Uplink
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gateways" title="Gateway(s)" class="md-nav__link">
+    Gateway(s)
   </a>
   
     <nav class="md-nav">
@@ -403,6 +458,45 @@
         
           <li class="md-nav__item">
   <a href="#ipv6" title="IPv6" class="md-nav__link">
+    IPv6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routed" title="Routed" class="md-nav__link">
+    Routed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access" title="Access" class="md-nav__link">
+    Access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4_1" title="IPv4" class="md-nav__link">
+    IPv4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6_1" title="IPv6" class="md-nav__link">
     IPv6
   </a>
   
@@ -469,15 +563,60 @@
 <p>Each access switch gets its own (private) IPv4 and (public) IPv6 subnet.
 <strong>NOTE</strong> IPv6 prefixes are added here as soon as we know what exactly we'll get!</p>
 </blockquote>
+<h2 id="uplink">Uplink</h2>
+<h3 id="gateways">Gateway(s)</h3>
+<h4 id="ipv4">IPv4</h4>
+<p><code>185.7.211.33</code></p>
+<h4 id="ipv6">IPv6</h4>
+<p>Gateway: <code>2a01:05c0:06:20::1/60</code>
+Routed to: <code>2a01:05c0:06:20::2/60</code></p>
+<h3 id="routed">Routed</h3>
+<pre><code>-[ipv4 : 185.7.211.32/27] - 0
+
+[CIDR]
+Host address        - 185.7.211.32
+Host address (decimal)  - 3104297760
+Host address (hex)  - B907D320
+Network address     - 185.7.211.32
+Network mask        - 255.255.255.224
+Network mask (bits) - 27
+Network mask (hex)  - FFFFFFE0
+Broadcast address   - 185.7.211.63
+Cisco wildcard      - 0.0.0.31
+Addresses in network    - 32
+Network range       - 185.7.211.32 - 185.7.211.63
+Usable range        - 185.7.211.33 - 185.7.211.62
+
+-
+-[ipv6 : 2a01:05c0:0006:1000::/52] - 0
+
+[IPV6 INFO]
+Expanded Address    - 2a01:05c0:0006:1000:0000:0000:0000:0000
+Compressed address  - 2a01:5c0:6:1000::
+Subnet prefix (masked)  - 2a01:5c0:6:1000:0:0:0:0/52
+Address ID (masked) - 0:0:0:0:0:0:0:0/52
+Prefix address      - ffff:ffff:ffff:f000:0:0:0:0
+Prefix length       - 52
+Address type        - Aggregatable Global Unicast Addresses
+Network range       - 2a01:05c0:0006:1000:0000:0000:0000:0000 -
+              2a01:05c0:0006:1fff:ffff:ffff:ffff:ffff
+
+-
+</code></pre>
+
 <h2 id="access">Access</h2>
-<h3 id="ipv4">IPv4</h3>
+<h3 id="ipv4_1">IPv4</h3>
 <p>Each access switch gets its own IPv4 subnet following this schema:</p>
 <pre><code>192.168.&lt;access-id&gt;.0/24
 </code></pre>
 
 <p>The .1 in the network is always the switch and will act as gateway for connecting clients</p>
-<h3 id="ipv6">IPv6</h3>
-<p>tbd</p>
+<h3 id="ipv6_1">IPv6</h3>
+<p>Each access Switch gets its own  IPv6 subnet following this schema:</p>
+<pre><code>2a01:5c0:6:100{{ access.id }}::/64
+</code></pre>
+
+<p>The <code>::1</code> is always the switch and will act as gateway for connecting clients (link local address can also be used as gateway)</p>
 <h3 id="ip-address-configuration">IP address configuration</h3>
 <p>For IPv6 we are using SLAAC - the IPv4 part is covered by a DHCP server running on <em>kvm0</em> to which the access switches connect as a dhcp-relay.</p>
 <h2 id="servers">Servers</h2>
