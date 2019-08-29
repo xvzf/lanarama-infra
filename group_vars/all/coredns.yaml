@@ -29,7 +29,7 @@ coredns:
     - name: k8s.lanarama.local 
       ip: 192.168.122.20
     - name: ts.lanarama.local 
-      ip: 192.168.122.20
+      ip: 192.168.122.11
     - name: dashboard.lanarama.local 
       ip: 192.168.122.20
     - name: prometheus.lanarama.local 
