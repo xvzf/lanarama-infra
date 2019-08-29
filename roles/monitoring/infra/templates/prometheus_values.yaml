@@ -12,6 +12,7 @@ prometheus:
     hosts:
       - {{ monitoring.prometheus.host }}
   prometheusSpec:
+    scrapeInterval: "8"
     additionalScrapeConfigs:
       - job_name: "servers"
         static_configs:

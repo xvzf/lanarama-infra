@@ -1,6 +1,6 @@
 .PHONY: terraform vmhosts
 
-all: bootstrap
+all: bootstrap base
 
 bootstrap:
 	ansible-playbook -i inventory bootstrap.yaml
