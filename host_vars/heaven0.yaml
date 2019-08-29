@@ -17,8 +17,42 @@ frr:
     - name: lo
       ipv4:
         - 10.65.0.1/32
+    # Inexio Uplink
+    - name: enp65s0f0
+      ipv4:
+        - 185.7.211.34/27
+        - 185.7.211.35/27
+        - 185.7.211.36/27
+        - 185.7.211.37/27
+        - 185.7.211.38/27
+        - 185.7.211.39/27
+        - 185.7.211.40/27
+        - 185.7.211.41/27
+        - 185.7.211.42/27
+        - 185.7.211.43/27
+        - 185.7.211.44/27
+        - 185.7.211.45/27
+        - 185.7.211.46/27
+        - 185.7.211.47/27
+        - 185.7.211.48/27
+        - 185.7.211.49/27
+        - 185.7.211.50/27
+        - 185.7.211.51/27
+        - 185.7.211.52/27
+        - 185.7.211.53/27
+        - 185.7.211.54/27
+        - 185.7.211.55/27
+        - 185.7.211.56/27
+        - 185.7.211.57/27
+        - 185.7.211.58/27
+        - 185.7.211.59/27
+        - 185.7.211.60/27
+        - 185.7.211.61/27
+        - 185.7.211.62/27
+      ipv6:
+        - 2a01:05c0:06:20::2/60
 
-  # BGP Configuration
+  # BGP Configuratio
   bgp:
     # Local AS + Router ID
     local_as: 65001
@@ -34,10 +68,12 @@ frr:
     # Advertised networks
     networks:
       ipv4:
-        # This is our main gateway, advertise default route
+        # This is our main IPv4 gateway
         - 0.0.0.0/0
         - 10.65.0.1/32
       ipv6:
+        # This is the main IPv6 gateway
+        - 2000::/3
 
   # Static routes
   static:
@@ -47,4 +83,10 @@ frr:
         next_hop: 10.51.1.1
       - dest: 10.152.1.2/32
         next_hop: 10.151.1.1
+      # Inexio Uplink default route IPv4
+      - dest: 0.0.0.0/0
+        next_hop: 185.7.211.33
     v6:
+      # Inexio Uoplink default route IPv6
+      - dest: 2000::/3
+        next_hop: 2a01:05c0:06:20::1

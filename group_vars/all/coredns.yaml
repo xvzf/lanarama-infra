@@ -34,3 +34,11 @@ coredns:
       ip: 192.168.122.20
     - name: prometheus.lanarama.local 
       ip: 192.168.122.20
+    - name: kibana.lanarama.local 
+      ip: 192.168.122.20
+    - name: easy-wi.lanarama.local 
+      ip: 192.168.1.40
+    - name: ebot.lanarama.local 
+      ip: 192.168.1.41
+    - name: ebotb.lanarama.local 
+      ip: 192.168.1.42

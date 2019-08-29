@@ -61,9 +61,6 @@
     restart_policy: always
   register: logstash_container
 
-- debug:
-    var: logstash_container
-
 - name: create kibana instance
   docker_container:
     name: kibana

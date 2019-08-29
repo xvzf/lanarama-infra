@@ -57,7 +57,11 @@ Each access switch gets its own IPv4 subnet following this schema:
 The .1 in the network is always the switch and will act as gateway for connecting clients
 
 ### IPv6
-tbd
+Each access Switch gets its own  IPv6 subnet following this schema:
+```
+2a01:5c0:6:100{{ access.id }}::/64
+```
+The `::1` is always the switch and will act as gateway for connecting clients (link local address can also be used as gateway)
 
 ### IP address configuration
 For IPv6 we are using SLAAC - the IPv4 part is covered by a DHCP server running on *kvm0* to which the access switches connect as a dhcp-relay.
