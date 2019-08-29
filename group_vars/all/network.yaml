@@ -56,6 +56,18 @@ event_network:
         router: 192.168.8.1
         range_start: 192.168.8.150
         range_end: 192.168.8.250
+      # COD
+      - base: 192.168.20.0
+        mask: 255.255.255.0
+        router: 192.168.20.1
+        range_start: 192.168.20.50
+        range_end: 192.168.20.250
+      # Stage
+      - base: 192.168.21.0
+        mask: 255.255.255.0
+        router: 192.168.21.1
+        range_start: 192.168.21.50
+        range_end: 192.168.21.250
       # KVM dhcp range
       - base: 192.168.122.0
         mask: 255.255.255.0
