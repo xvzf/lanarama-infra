@@ -20,6 +20,8 @@ coredns:
       ip: 11.64.70.7
     - name: heaven0.lanarama.local 
       ip: 10.65.0.1
+    - name: game0.lanarama.local 
+      ip: 192.168.1.20
     - name: kvm0.lanarama.local 
       ip: 10.64.80.1
     - name: dhcp.lanarama.local 
@@ -37,7 +39,7 @@ coredns:
     - name: kibana.lanarama.local 
       ip: 192.168.122.20
     - name: easy-wi.lanarama.local 
-      ip: 192.168.1.40
+      ip: 192.168.1.44
     - name: ebot.lanarama.local 
       ip: 192.168.1.41
     - name: ebotb.lanarama.local 
