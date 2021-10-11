@@ -11,4 +11,8 @@ users:
   - name: xvzf
     github: xvzf
     password: $6$MyRGz9DB14FF.wDi$UjQ4M8fbm2k96BFQ0FochVMvo33bP1TYXzQyrXXB43jy1Ibo8.ki02hHbDhHWWh/8mML84KCoVFDqxnWM0bO/0
+    
+  - name: nikschuetz
+    github: NiklasSchuetz
+    password: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCqxDhioq86ggM1dNpQ6T7s497MNoo69R8+yjaHLDQf5JDqf2JIVB53aXKfuhNl3S2/paPB5AYb1c678gPDnYTcEqDWHKwzCWpwUCIf2KBqAezQ+HDdYW0EFlrft2bzfkMKd99mzR4x/S2VpJROG8qCel9YMKmsD+zbVndsg3qbdBrwCI/bWgeZrB3tHSIiWzE4xKf+6IdJnbjT/qGKNmnvVUr1tTqJHiuDpgg9Td3lGaCmBF7yoZbOUjpppWbJYfoXAvEEWzXggBtPGLsLhFDdbhdW5MOvWkuC1+2hlb/aaCwud9M2724ky6fSGFk5PhjoSRaXGfAipctxZYl8f/B/HD1XFZ5ZlZs8osMW/akK/7ft4e3m+796COnYa77Bd+06D1etsKGcdeRd2izLVJDVQeEMfR0W1CZbETMAJHkWEb+S7ja4vh2oJc3lB3egpgWHRGgn3uTmUTbjPKw8rulMzONhpQmVf6hqsqQQK5Bue0cN6WpcliY06LRMCv1YwGTA739qL9uostPjAztKMIzpc5jAo/L9TyQOus3u0PdDtUM+5f7rZ9QL1TbhatfhSw9PIWLuRyKS35Aia09xuDxAC1AZ86JetpHzWErynUQx+YTKluKdzKi3MO6kER2C76R+I6FMt4juA6ur9KuwiLrnQ+aAxGfyPL/Xczjum5+dfw== nikschuetz@nikschuetz-440-G4
 
