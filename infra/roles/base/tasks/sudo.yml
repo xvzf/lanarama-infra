@@ -1,0 +1,13 @@
+---
+- name: Install sudo
+  package:
+    name: sudo
+    state: present
+
+- name: Copy sudo configuration
+  copy:
+    src: sudoers
+    dest: /etc/sudoers
+    owner: root
+    group: root
+    mode: 440

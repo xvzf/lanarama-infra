@@ -1,0 +1,15 @@
+[Match]
+Name=eth0
+
+[Network]
+DHCP=no
+UseDNS=true
+{% for ip in networking.ips %}
+Address={{ ip }}
+{% endfor %}
+{% for gateway in networking.gateways %}
+Gateway={{ gateway }}
+{% endfor %}
+{% for dns in networking.dns %}
+DNS={{ dns }}
+{% endfor %}

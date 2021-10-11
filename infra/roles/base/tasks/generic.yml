@@ -1,0 +1,5 @@
+---
+- name: beatiful banner :-)
+  template:
+    src: motd
+    dest: /etc/motd

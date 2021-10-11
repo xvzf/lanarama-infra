@@ -1,0 +1,5 @@
+site_name: Lanarama 2021
+repo_url: https://github.com/xvzf/lanarama-infra
+theme:
+  name: material
+

@@ -1,0 +1,20 @@
+---
+- name: Add users
+  user:
+    name: "{{ item.name }}"
+    group: "wheel"
+    home: "/home/{{ item.name }}"
+    createhome: "yes"
+    generate_ssh_key: "no"
+    password: "{{ item.password }}"
+    update_password: "on_create"
+    shell: "/bin/zsh"
+  with_items: "{{ users }}"
+
+- name: Add ssh keys
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "https://github.com/{{ item.github }}.keys"
+  with_items: "{{ users }}"
+

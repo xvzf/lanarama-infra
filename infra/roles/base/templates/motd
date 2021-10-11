@@ -1,0 +1,8 @@
+        __    ___    _   _____    ____  ___    __  ______
+       / /   /   |  / | / /   |  / __ \/   |  /  |/  /   |
+      / /   / /| | /  |/ / /| | / /_/ / /| | / /|_/ / /| |
+     / /___/ ___ |/ /|  / ___ |/ _, _/ ___ |/ /  / / ___ |
+    /_____/_/  |_/_/ |_/_/  |_/_/ |_/_/  |_/_/  /_/_/  |_|
+
+Last config push triggered by {{ lookup('env', 'GITHUB_ACTOR') or lookup('env', 'USER') }}, {{ ansible_date_time.date }} {{ ansible_date_time.time }}
+

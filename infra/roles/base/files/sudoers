@@ -1,0 +1,17 @@
+## Ansible managed
+
+# sudoers defaults
+
+Defaults        env_reset
+
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# Users priviliege specification
+
+# Default rule for root
+root ALL=(ALL) ALL
+
+# Allow members of group wheel to execute any command
+%wheel ALL=(ALL) NOPASSWD: ALL
+
+#includedir /etc/sudoers.d
